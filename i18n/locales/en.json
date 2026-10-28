@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Old Town Leather: handmade leather bags from Ukraine",
+    "description": "Handmade Crazy Horse leather bags from a family workshop in Ukraine. Totes, laptop bags and crossbodies, shipped worldwide."
+  },
+  "topBar": {
+    "handmade": "Handmade in Ukraine",
+    "shipping": "Worldwide shipping",
+    "duties": "US import duties included at checkout"
+  },
+  "nav": {
+    "label": "Main",
+    "shop": "Shop",
+    "totes": "Totes",
+    "shoulderBags": "Shoulder bags",
+    "backpacks": "Backpacks",
+    "personalization": "Personalization",
+    "story": "Our story"
+  },
+  "header": {
+    "switchLanguage": "Українська версія",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart, {count} items",
+    "menu": "Menu",
+    "home": "Old Town Leather, home",
+    "close": "Close menu"
+  },
+  "hero": {
+    "label": "New bags",
+    "title": "Leather bags,\nmade by hand\nin Ukraine",
+    "lead": "Crazy Horse leather, from our family workshop since 2017.",
+    "shop": "Shop the bags",
+    "personalize": "Personalize a bag",
+    "altCognac": "Cognac leather tote with zipper and crossbody strap",
+    "altBurgundy": "Burgundy leather tote held by a model",
+    "altSlouchy": "Slouchy cognac leather hobo bag",
+    "slide": "Show photo {n} of {total}"
+  },
+  "home": {
+    "categoriesTitle": "Shop by category",
+    "bestsellersTitle": "Bestsellers",
+    "viewAll": "View all {count} bags"
+  },
+  "category": {
+    "totes": "Totes",
+    "shoulderBags": "Shoulder bags",
+    "laptopWork": "Laptop & work bags",
+    "miniCrossbody": "Mini & crossbody"
+  },
+  "badge": {
+    "personalize": "Personalize",
+    "new": "New",
+    "bestseller": "Bestseller"
+  },
+  "product": {
+    "salePrice": "Sale price",
+    "regularPrice": "Regular price",
+    "colorFor": "Colour of {title}"
+  },
+  "personal": {
+    "title": "Your initials,\npressed into the leather",
+    "lead": "A gift for a wedding, a colleague or yourself. Add up to three letters when you order, and we emboss them by hand before the bag leaves the workshop.",
+    "step1": "Choose a bag",
+    "step2": "Type your initials",
+    "step3": "We emboss and ship it",
+    "alt": "Front pocket of a cognac Crazy Horse leather bag with your initials embossed",
+    "try": "Try yours:"
+  },
+  "leather": {
+    "title": "Crazy Horse leather gets better every year",
+    "oiled": {
+      "title": "Oiled and waxed",
+      "text": "Thick, soft full-grain leather that keeps its shape and resists everyday wear."
+    },
+    "patina": {
+      "title": "Builds a patina",
+      "text": "Light marks rub out with a fingertip, and the colour deepens the longer you carry it."
+    },
+    "colors": {
+      "title": "Classic and bright",
+      "text": "Black, cognac and chocolate next to burgundy, red, green and blue."
+    }
+  },
+  "reviews": {
+    "rated": "Rated {rating} out of 5",
+    "caption": "{count} reviews on Etsy, Star Seller"
+  },
+  "story": {
+    "title": "Started by a husband and wife, made by our team",
+    "text": "We started making leather goods in Ukraine to offer bags in classic colours and all sorts of bright ones. Today every bag is cut, stitched and finished by hand in our workshop. You choose the bag, and we take care of the rest.",
+    "more": "Read our story",
+    "alt": "The OTL team cutting burgundy leather at the workshop table"
+  },
+  "footer": {
+    "tagline": "Handmade leather bags from a family workshop in Ukraine.",
+    "etsy": "Also on Etsy: {orders} orders since {year}",
+    "shop": "Shop",
+    "help": "Help",
+    "contact": "Contact",
+    "beltsWallets": "Belts & wallets",
+    "shipping": "Shipping & duties",
+    "returns": "Returns",
+    "care": "Leather care",
+    "payments": "Payment methods"
+  },
+  "color": {
+    "black": "Black",
+    "cognac": "Cognac",
+    "chocolate": "Chocolate",
+    "burgundy": "Burgundy",
+    "green": "Green",
+    "tan": "Tan",
+    "red": "Red",
+    "caramel": "Caramel"
+  }
+}
