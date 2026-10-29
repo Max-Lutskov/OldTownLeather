@@ -3,10 +3,10 @@
 import type { HomeCategory, ProductSummary } from '#shared/types/catalog'
 
 export const homeCategories: HomeCategory[] = [
-  { handle: 'totes', labelKey: 'category.totes', image: '/images/work-tote.jpg' },
-  { handle: 'shoulder-bags', labelKey: 'category.shoulderBags', image: '/images/cappuccino-bag.jpg' },
-  { handle: 'laptop-work', labelKey: 'category.laptopWork', image: '/images/studded-laptop-tote.jpg' },
-  { handle: 'mini-crossbody', labelKey: 'category.miniCrossbody', image: '/images/mini-crossbody.jpg' },
+  { handle: 'totes', labelKey: 'category.totes', image: '/images/cat-totes.jpg' },
+  { handle: 'shoulder-bags', labelKey: 'category.shoulderBags', image: '/images/cat-shoulder.jpg' },
+  { handle: 'laptop-work', labelKey: 'category.laptopWork', image: '/images/cat-laptop.jpg' },
+  { handle: 'mini-crossbody', labelKey: 'category.miniCrossbody', image: '/images/cat-mini.jpg' },
 ]
 
 export const bestsellers: ProductSummary[] = [
