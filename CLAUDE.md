@@ -12,7 +12,10 @@
 - Без UI-бібліотеки: власна дизайн-система на CSS-змінних (`app/assets/css/main.css`) і scoped-стилях
 - Скіли проєкту в `.claude/skills/` (див. README там): nuxt, nuxt-best-practices, vue-best-practices,
   verification-before-completion, systematic-debugging, webapp-testing, frontend-design, site-architecture,
-  nuxt-seo, schema, seo-audit, copywriting, cro. Користуйся ними
+  nuxt-seo, schema, seo-audit, copywriting, cro, brainstorming. Користуйся ними
+- `brainstorming` — **лише для нових великих фіч** (кошик, сторінка товару, оформлення замовлення, каталог з
+  фільтрами, інтеграція Shopify): спершу питання, варіанти й погоджений підхід, потім код. Для правок, дрібних
+  змін вигляду чи тексту його не запускати, навіть якщо в описі скіла сказано «MUST use before any creative work»
 - Перевірка: `npx nuxt typecheck`. Візуальна перевірка через Playwright (скіл webapp-testing): 390, 768 і 1440 px
 
 ## Цільова архітектура (ще не підключено)
