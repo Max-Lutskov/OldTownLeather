@@ -42,3 +42,29 @@ export interface HomeCategory {
   labelKey: string
   image: string
 }
+
+// Розміри сумки в сантиметрах (дюйми рахуються на сторінці). strapCm — регульований ремінь, від і до.
+export interface ProductDimensions {
+  heightCm: number
+  topWidthCm: number
+  bottomWidthCm: number
+  depthCm: number
+  handleDropCm: number
+  strapCm: [number, number]
+  laptopInches: number
+}
+
+// Повна сторінка товару. images — фото за кольором; для кольорів без фото показуємо фото defaultColor.
+// category — для хлібних крихт: handle колекції і ключ i18n її назви.
+export interface ProductDetail {
+  handle: string
+  title: string
+  description: string
+  price: Money
+  colors: LeatherColor[]
+  defaultColor: LeatherColor
+  images: Partial<Record<LeatherColor, ProductImage[]>>
+  details: string[]
+  dimensions: ProductDimensions
+  category: { handle: string; labelKey: string }
+}

@@ -14,6 +14,9 @@ const selected = ref<LeatherColor>(props.product.imageColor)
 const href = computed(() =>
   localePath({ path: `/products/${props.product.handle}`, query: { color: selected.value } }),
 )
+
+// Статична збірка (обхід посилань вимкнено): картка сама додає сторінку свого товару до пререндеру
+prerenderRoutes(localePath(`/products/${props.product.handle}`))
 </script>
 
 <template>

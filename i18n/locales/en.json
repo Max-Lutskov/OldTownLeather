@@ -56,7 +56,35 @@
   "product": {
     "salePrice": "Sale price",
     "regularPrice": "Regular price",
-    "colorFor": "Colour of {title}"
+    "colorFor": "Colour of {title}",
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "photos": "Photos of {title}",
+    "colour": "Colour",
+    "photosShow": "Photos show the {color} bag",
+    "sizeLine": "{height} × {width} × {depth} cm, fits a {laptop} inch laptop",
+    "addToCart": "Add to cart, {price}",
+    "addToCartShort": "Add to cart",
+    "personalize": "Add engraving or initials",
+    "details": "Details",
+    "size": "Size & fit",
+    "shipping": "Shipping & duties",
+    "care": "Leather care",
+    "shippingText": "Every bag is made to order and ships worldwide from Ukraine in [X] working days. Import duties for US orders are included at checkout.",
+    "careText": "Light scratches rub out with a fingertip, and the leather darkens with wear. If the bag gets wet, let it dry at room temperature away from heaters.",
+    "dims": {
+      "height": "Height",
+      "topWidth": "Top width",
+      "bottomWidth": "Bottom width",
+      "depth": "Depth",
+      "handleDrop": "Handle drop",
+      "strap": "Crossbody strap",
+      "laptop": "Fits a {n} inch laptop placed upright"
+    },
+    "cm": "{cm} cm ({inch} in)",
+    "cmRange": "{from} to {to} cm ({inchFrom} to {inchTo} in)",
+    "alsoLike": "You may also like",
+    "cmShort": "{n} cm"
   },
   "personal": {
     "title": "Your initials,\npressed into the leather",

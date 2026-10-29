@@ -19,7 +19,7 @@ export const bestsellers: ProductSummary[] = [
     image: { url: '/images/studded-laptop-tote.jpg', alt: 'Studded leather laptop tote' },
     price: { amount: 102, currencyCode: 'USD' },
     compareAtPrice: null,
-    colors: ['black', 'cognac', 'chocolate', 'burgundy', 'green'],
+    colors: ['black', 'cognac', 'chocolate', 'burgundy', 'green', 'caramel', 'red'],
     imageColor: 'cognac',
     badge: null,
   },

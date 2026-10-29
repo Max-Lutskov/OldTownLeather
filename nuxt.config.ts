@@ -40,9 +40,9 @@ export default defineNuxtConfig({
   // xl 1280, 2xl 1536), і ширина файлу рахується від нього. Значення без префікса рахується від 1px,
   // тому завжди починати з xs:, а на xl (контейнер 1280) ставити ширину в px.
   image: {
-    quality: 72,
     presets: {
-      photo: { modifiers: { format: 'webp' } },
+      // Якість у пресеті, а не глобально: так її бачить і useImage().getSizes (ProductGallery)
+      photo: { modifiers: { format: 'webp', quality: 72 } },
     },
   },
 
@@ -51,6 +51,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: false,
+      // Сторінки товарів додає ProductCard через prerenderRoutes (кожна картка — свою сторінку)
       routes: ['/', '/ua'],
     },
   },
