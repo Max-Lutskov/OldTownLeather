@@ -13,10 +13,16 @@ const menuOpen = ref(false)
 watch(() => route.fullPath, () => {
   menuOpen.value = false
 })
+
+// Шапка закріплена. На мобільному при прокрутці стає нижчою (див. стилі .compact).
+// Після монтування, щоб клієнт гідрував ту саму розмітку, що й сервер.
+const mounted = useMounted()
+const { y } = useWindowScroll()
+const compact = computed(() => mounted.value && y.value > 4)
 </script>
 
 <template>
-  <header class="site-header">
+  <header class="site-header" :class="{ compact }">
     <div class="container bar">
       <div class="left">
         <button
@@ -37,7 +43,7 @@ watch(() => route.fullPath, () => {
       </div>
 
       <NuxtLink :to="localePath('/')" class="brand" :aria-label="t('header.home')">
-        <span class="brand-mark">OTL</span>
+        <LogoMark class="brand-mark" />
         <span class="brand-name">Old Town Leather</span>
       </NuxtLink>
 
@@ -68,8 +74,12 @@ watch(() => route.fullPath, () => {
 </template>
 
 <style scoped>
+/* Закріплена шапка. На мобільному top від'ємний: шапка спершу проїжджає --header-shrink разом зі сторінкою
+   і лише тоді закріплюється, тож стає нижчою без зміни висоти і без стрибків сторінки під нею. */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: calc(-1 * var(--header-shrink));
+  z-index: 50;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
@@ -101,12 +111,10 @@ watch(() => route.fullPath, () => {
   gap: 4px;
   text-align: center;
 }
+/* Монограма тієї ж висоти, що й колишній напис OTL (38px), тож висота шапки й --header-h не змінились */
 .brand-mark {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-size: 38px;
-  line-height: 1;
-  letter-spacing: 0.04em;
+  width: 38px;
+  height: 38px;
 }
 .brand-name {
   font-size: 13px;
@@ -158,6 +166,36 @@ watch(() => route.fullPath, () => {
   }
   .nav {
     display: none;
+  }
+
+  /* Нижча шапка при прокрутці: верхні --header-shrink сховались за край екрана, тому вміст зсуваємо
+     на половину вниз, щоб він стояв по центру видимої частини. Підпис зникає, лого трохи менше
+     і опускається ще на половину висоти підпису з відступом (11px). Лише transform і opacity. */
+  .left,
+  .actions,
+  .brand-mark,
+  .brand-name {
+    transition: transform 0.35s var(--ease-out), opacity 0.25s ease;
+  }
+  .compact .left,
+  .compact .actions {
+    transform: translateY(calc(var(--header-shrink) / 2));
+  }
+  .compact .brand-mark {
+    transform: translateY(calc(var(--header-shrink) / 2 + 11px)) scale(0.8);
+  }
+  .compact .brand-name {
+    opacity: 0;
+    transform: translateY(calc(var(--header-shrink) / 2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .left,
+  .actions,
+  .brand-mark,
+  .brand-name {
+    transition: none;
   }
 }
 </style>

@@ -61,6 +61,10 @@
   --input-h: 48px;
   --tap: 44px;
 
+  /* Висота закріпленої шапки (SiteHeader.vue) і на скільки вона ховається при прокрутці */
+  --header-h: 89px;
+  --header-shrink: 0px;
+
   /* Плавне гальмування для появи блоків і ховерів на фото */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -68,6 +72,11 @@
 html,
 body {
   overflow-x: clip;
+}
+
+/* Якорі (/#personal) і фокус не ховаються під закріпленою шапкою */
+html {
+  scroll-padding-top: calc(var(--header-h) - var(--header-shrink));
 }
 
 body {
@@ -223,5 +232,7 @@ input:disabled {
 @media (max-width: 760px) {
   :root {
     --gutter: 20px;
+    --header-h: 85px;
+    --header-shrink: 24px;
   }
 }

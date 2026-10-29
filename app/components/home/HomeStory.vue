@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 <template>
   <section id="story" aria-labelledby="story-h" class="container story">
     <div v-reveal class="photo media">
-      <NuxtImg src="/images/team-workshop.jpg" :alt="t('story.alt')" preset="photo" sizes="xs:100vw sm:100vw md:100vw lg:56vw xl:720px" loading="lazy" />
+      <NuxtImg src="/images/founders.jpg" :alt="t('story.alt')" preset="photo" sizes="xs:100vw sm:100vw md:100vw lg:44vw xl:560px" loading="lazy" />
     </div>
     <div v-reveal="1" class="copy">
       <h2 id="story-h" class="display heading">{{ t('story.title') }}</h2>
@@ -25,13 +25,18 @@ const localePath = useLocalePath()
   gap: 48px;
   align-items: center;
 }
+/* Вертикальний портрет засновників: кадр 4:5, обрізаємо зверху менше, щоб обличчя не впиралися в край */
 .media {
-  flex: 1.3 1 520px;
+  flex: 1 1 420px;
+  max-width: 560px;
   min-width: 0;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 5;
+}
+.media img {
+  object-position: 50% 30%;
 }
 .copy {
-  flex: 1 1 420px;
+  flex: 1.2 1 420px;
   min-width: 0;
   display: flex;
   flex-direction: column;

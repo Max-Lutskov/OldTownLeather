@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { contacts, etsy, paymentMethods } from '~/data/brand'
+import { contacts, paymentMethods } from '~/data/brand'
 import { footerHelpNav, footerShopNav } from '~/data/navigation'
 
 const { t } = useI18n()
-const n = useNumber()
 const localePath = useLocalePath()
 </script>
 
@@ -11,11 +10,8 @@ const localePath = useLocalePath()
   <footer class="site-footer on-dark">
     <div class="container cols">
       <div class="about">
-        <span class="mark">OTL</span>
+        <LogoMark class="mark" />
         <span class="tagline">{{ t('footer.tagline') }}</span>
-        <a :href="etsy.url" class="etsy" rel="noopener">
-          {{ t('footer.etsy', { orders: n(etsy.orders), year: etsy.since }, etsy.orders) }}
-        </a>
       </div>
 
       <nav :aria-label="t('footer.shop')" class="col">
@@ -63,23 +59,14 @@ const localePath = useLocalePath()
   gap: 14px;
 }
 .mark {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-size: 40px;
+  width: 56px;
+  height: 56px;
   color: var(--on-dark);
-  line-height: 1;
 }
 .tagline {
   font-size: 15px;
   line-height: 1.6;
   max-width: 320px;
-}
-.etsy {
-  align-self: flex-start;
-  color: var(--on-dark);
-  font-size: 15px;
-  border-bottom: 1px solid var(--muted);
-  padding-bottom: 2px;
 }
 .col {
   flex: 1 1 160px;

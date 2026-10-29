@@ -74,7 +74,7 @@ function onKeydown(e: KeyboardEvent) {
         :aria-label="t('header.menu')"
       >
         <div class="head">
-          <NuxtLink :to="localePath('/')" class="mark" @click="emit('close')">OTL</NuxtLink>
+          <NuxtLink :to="localePath('/')" class="mark" :aria-label="t('header.home')" @click="emit('close')"><LogoMark class="mark-svg" /></NuxtLink>
           <button ref="closeBtn" type="button" class="close" :aria-label="t('header.close')" @click="emit('close')">
             <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
           </button>
@@ -177,11 +177,13 @@ function onKeydown(e: KeyboardEvent) {
   border-bottom: 1px solid var(--line);
 }
 .mark {
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-size: 32px;
-  line-height: 1;
-  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+}
+.mark-svg {
+  width: 36px;
+  height: 36px;
 }
 .close {
   width: var(--tap);

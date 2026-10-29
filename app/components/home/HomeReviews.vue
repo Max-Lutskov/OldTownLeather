@@ -33,7 +33,6 @@ function month(ym: string) {
             <span class="caption">{{ t('reviews.caption', { count: n(etsy.reviews) }, etsy.reviews) }}</span>
           </div>
         </div>
-        <a :href="`${etsy.url}reviews`" class="text-link all" target="_blank" rel="noopener">{{ t('reviews.all') }}</a>
       </div>
 
       <div v-if="reviews.length" class="quotes">
@@ -92,9 +91,6 @@ function month(ym: string) {
 .caption {
   font-size: 15px;
   color: var(--ink-soft);
-}
-.all {
-  margin-bottom: 10px;
 }
 .quotes {
   display: grid;

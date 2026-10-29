@@ -111,7 +111,7 @@ function release() {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  height: calc(100svh - 118px);
+  height: calc(100svh - var(--header-h));
   min-height: 560px;
   max-height: 900px;
 }

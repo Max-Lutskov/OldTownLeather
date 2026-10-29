@@ -12,6 +12,6 @@ export interface StoreContacts {
 export interface EtsyReview {
   text: string
   author: string
-  item: 'burgundyTote' | 'blackTote' | 'blackToteMonogram'
+  item: 'burgundyTote' | 'greenTote' | 'greenLaptopTote'
   date: string
 }

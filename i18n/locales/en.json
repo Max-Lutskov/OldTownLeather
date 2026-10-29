@@ -88,25 +88,23 @@
   },
   "reviews": {
     "rated": "Rated {rating} out of 5",
-    "caption": "{count} review on Etsy, Star Seller | {count} reviews on Etsy, Star Seller",
-    "all": "Read all reviews on Etsy",
-    "source": "Etsy review, {date}",
+    "caption": "{count} customer review | {count} customer reviews",
+    "source": "{date}",
     "items": {
       "burgundyTote": "burgundy tote",
-      "blackTote": "black tote",
-      "blackToteMonogram": "black tote with monogram"
+      "greenTote": "green tote",
+      "greenLaptopTote": "green laptop tote"
     },
     "title": "Customer reviews"
   },
   "story": {
-    "title": "Started by a husband and wife, made by our team",
-    "text": "We started making leather goods in Ukraine to offer bags in classic colours and all sorts of bright ones. Today every bag is cut, stitched and finished by hand in our workshop. You choose the bag, and we take care of the rest.",
+    "title": "Started by a husband and wife, still a family workshop",
+    "text": "Old Town Leather is a family workshop in Vinnytsia, in the centre of Ukraine. A husband and wife started it, and today a small team cuts, stitches and finishes every bag by hand. Many of our customers have become friends we still write to.",
     "more": "Read our story",
-    "alt": "The OTL team cutting burgundy leather at the workshop table"
+    "alt": "The husband and wife who founded Old Town Leather, standing on a tree lined street"
   },
   "footer": {
     "tagline": "Handmade leather bags from a family workshop in Ukraine.",
-    "etsy": "Also on Etsy: {orders} order since {year} | Also on Etsy: {orders} orders since {year}",
     "shop": "Shop",
     "help": "Help",
     "contact": "Contact",
