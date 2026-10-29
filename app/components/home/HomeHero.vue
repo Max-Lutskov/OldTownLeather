@@ -84,7 +84,9 @@ function release() {
           <NuxtLink :to="localePath('/collections/all')" class="btn btn--light">{{ t('hero.shop') }}</NuxtLink>
           <NuxtLink :to="localePath('/#personal')" class="btn btn--ghost">{{ t('hero.personalize') }}</NuxtLink>
         </div>
-        <div v-if="autoplay" class="controls">
+        <!-- Смужки є в розмітці з сервера (на десктопі сховані CSS), інакше після гідратації
+             вони з'являлись і зсували заголовок угору -->
+        <div class="controls">
           <button
             v-for="(s, i) in slides"
             :key="s.src"
@@ -95,7 +97,7 @@ function release() {
             :aria-current="i === current ? 'true' : undefined"
             @click="goTo(i)"
           >
-            <span v-if="i === current" :key="current" class="fill" @animationend="next" />
+            <span v-if="autoplay && i === current" :key="current" class="fill" @animationend="next" />
           </button>
         </div>
       </div>
@@ -253,6 +255,9 @@ function release() {
 /* Десктоп: після завантаження три фото по черзі «осідають», як слайди на мобільному. Чистий CSS,
    працює ще до гідратації і не затримує LCP (фото видно з першого кадру). */
 @media (min-width: 761px) {
+  .controls {
+    display: none;
+  }
   .slide img {
     animation: settle 2.4s var(--ease-out) both;
     animation-delay: calc(var(--n) * 140ms);
@@ -282,7 +287,9 @@ function release() {
     -webkit-touch-callout: none;
     user-select: none;
   }
-  .autoplay .slide.active img {
+  /* Наїзд камери стартує з CSS ще до гідратації, як на десктопі. Через клас .autoplay перше фото
+     після гідратації різко збільшувалось до 1.08 */
+  .slide.active img {
     animation: settle 6.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;
   }
   .held .slide.active img {
@@ -308,6 +315,10 @@ function release() {
   }
   .slide img {
     animation: none !important;
+  }
+  /* Без автопоказу смужки лишаються ручними перемикачами, поточна заповнена */
+  .dot.active::before {
+    opacity: 1;
   }
 }
 </style>

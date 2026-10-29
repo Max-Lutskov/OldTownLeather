@@ -15,6 +15,16 @@ const href = computed(() =>
   localePath({ path: `/products/${props.product.handle}`, query: { color: selected.value } }),
 )
 
+// На мобільному в ряд картки влазить лише 4 кружечки, решту ховаємо за «+N» (усі кольори є на сторінці товару).
+// Колір з фото лишається видимим, навіть якщо він далі в списку.
+const MOBILE_SWATCHES = 4
+const mobileColors = computed(() => {
+  const first = props.product.colors.slice(0, MOBILE_SWATCHES)
+  if (first.includes(props.product.imageColor)) return first
+  return [...first.slice(0, -1), props.product.imageColor]
+})
+const hiddenOnMobile = computed(() => props.product.colors.length - mobileColors.value.length)
+
 // Статична збірка (обхід посилань вимкнено): картка сама додає сторінку свого товару до пререндеру
 prerenderRoutes(localePath(`/products/${props.product.handle}`))
 </script>
@@ -40,7 +50,13 @@ prerenderRoutes(localePath(`/products/${props.product.handle}`))
       </span>
       <div class="colors">
         <div class="swatches" role="radiogroup" :aria-label="t('product.colorFor', { title: product.title })">
-          <label v-for="c in product.colors" :key="c" class="swatch" :title="t(`color.${c}`)">
+          <label
+            v-for="c in product.colors"
+            :key="c"
+            class="swatch"
+            :class="{ 'desktop-only': !mobileColors.includes(c) }"
+            :title="t(`color.${c}`)"
+          >
             <input
               v-model="selected"
               class="visually-hidden"
@@ -52,6 +68,7 @@ prerenderRoutes(localePath(`/products/${props.product.handle}`))
             <span class="visually-hidden">{{ t(`color.${c}`) }}</span>
           </label>
         </div>
+        <span v-if="hiddenOnMobile" class="more" aria-hidden="true">+{{ hiddenOnMobile }}</span>
         <span class="color-name" aria-hidden="true">{{ t(`color.${selected}`) }}</span>
       </div>
     </div>
@@ -150,6 +167,11 @@ prerenderRoutes(localePath(`/products/${props.product.handle}`))
   font-size: 13px;
   color: var(--ink-soft);
 }
+.more {
+  display: none;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
 
 /* Лише на пристроях з мишкою: фото повільно наближається, назва підкреслюється */
 @media (hover: hover) and (pointer: fine) {
@@ -169,6 +191,20 @@ prerenderRoutes(localePath(`/products/${props.product.handle}`))
 @media (max-width: 760px) {
   .subtitle {
     display: none;
+  }
+  .swatch.desktop-only {
+    display: none;
+  }
+  .more {
+    display: block;
+    margin-left: -4px;
+  }
+  /* Назва кольору завжди окремим рядком, щоб картки в ряду виглядали однаково */
+  .colors {
+    column-gap: 4px;
+  }
+  .color-name {
+    flex-basis: 100%;
   }
 }
 @media (prefers-reduced-motion: reduce) {
