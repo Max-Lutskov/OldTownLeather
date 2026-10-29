@@ -20,11 +20,14 @@ const panel = ref<HTMLElement | null>(null)
 const closeBtn = ref<HTMLButtonElement | null>(null)
 let returnFocus: HTMLElement | null = null
 
+// Поки меню відкрите, сторінка під ним не прокручується (знімається й при розмонтуванні)
+const scrollLocked = useScrollLock(() => (import.meta.client ? document.documentElement : null))
+
 watch(
   () => props.open,
   async (isOpen) => {
     if (!import.meta.client) return
-    document.documentElement.style.overflow = isOpen ? 'hidden' : ''
+    scrollLocked.value = isOpen
     if (isOpen) {
       returnFocus = document.activeElement as HTMLElement | null
       await nextTick()
@@ -36,12 +39,13 @@ watch(
   },
 )
 
-// Esc закриває, Tab не виходить за межі панелі.
+onKeyStroke('Escape', () => {
+  if (props.open) emit('close')
+})
+
+// Tab не виходить за межі панелі. Власна пастка фокуса: useFocusTrap з VueUse
+// потребує ще й бібліотеки focus-trap, а тут достатньо цих кількох рядків.
 function onKeydown(e: KeyboardEvent) {
-  if (e.key === 'Escape') {
-    emit('close')
-    return
-  }
   if (e.key !== 'Tab' || !panel.value) return
   const focusable = panel.value.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
   const first = focusable[0]
@@ -55,10 +59,6 @@ function onKeydown(e: KeyboardEvent) {
     first.focus()
   }
 }
-
-onBeforeUnmount(() => {
-  if (import.meta.client) document.documentElement.style.overflow = ''
-})
 </script>
 
 <template>

@@ -11,7 +11,15 @@ const slides = [
 const INTERVAL = 5000
 
 const current = ref(0)
-const autoplay = ref(false)
+// Автопоказ лише на мобільному і якщо анімації не вимкнені. Вмикаємо після монтування:
+// на сервері розмір екрана невідомий, і так клієнт гідрує ту саму розмітку, що прийшла з сервера.
+const mounted = useMounted()
+const isMobile = useMediaQuery('(max-width: 760px)')
+const motion = usePreferredReducedMotion()
+const autoplay = computed(() => mounted.value && isMobile.value && motion.value !== 'reduce')
+watch(autoplay, (on) => {
+  if (!on) current.value = 0
+})
 // Палець на фото тримає слайд: смужка прогресу і наїзд камери стають на паузу.
 const held = ref(false)
 
@@ -29,26 +37,6 @@ function hold() {
 function release() {
   held.value = false
 }
-
-let cleanup: (() => void) | undefined
-
-onMounted(() => {
-  const mobile = window.matchMedia('(max-width: 760px)')
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
-  const sync = () => {
-    autoplay.value = mobile.matches && !reduced.matches
-    if (!autoplay.value) current.value = 0
-  }
-  sync()
-  mobile.addEventListener('change', sync)
-  reduced.addEventListener('change', sync)
-  cleanup = () => {
-    mobile.removeEventListener('change', sync)
-    reduced.removeEventListener('change', sync)
-  }
-})
-
-onBeforeUnmount(() => cleanup?.())
 </script>
 
 <template>
