@@ -12,3 +12,6 @@ logs
 !.env.example
 .DS_Store
 .idea
+
+# Claude Code: локальні налаштування не комітимо, скіли й CLAUDE.md — так
+.claude/settings.local.json
