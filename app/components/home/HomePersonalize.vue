@@ -38,7 +38,7 @@ const monogram = computed(() => (input.value || DEFAULT_INITIALS.value).split(''
       <div class="demo">
         <div class="leather">
           <img :src="publicPath('/images/leather-pocket.jpg')" :alt="t('personal.alt')" loading="lazy">
-          <span class="monogram" aria-live="polite">{{ monogram }}</span>
+          <LeatherDeboss :text="monogram" announce />
         </div>
         <div class="try">
           <label for="try-ini">{{ t('personal.try') }}</label>
@@ -121,21 +121,6 @@ const monogram = computed(() => (input.value || DEFAULT_INITIALS.value).split(''
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.monogram {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 54%;
-  transform: translateY(-50%);
-  text-align: center;
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-size: clamp(64px, 9vw, 112px);
-  line-height: 1;
-  letter-spacing: 0.1em;
-  color: var(--deboss-ink);
-  text-shadow: 0 1.5px 0 var(--deboss-hi), 0 -1px 1px var(--deboss-shadow);
 }
 .try {
   display: flex;

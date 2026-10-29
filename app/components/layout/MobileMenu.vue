@@ -108,7 +108,7 @@ function onKeydown(e: KeyboardEvent) {
         <NuxtLink :to="localePath('/#personal')" class="feature" :style="{ '--i': items.length + 1 }" @click="emit('close')">
           <span class="plate">
             <img :src="publicPath('/images/leather-pocket.jpg')" alt="" loading="lazy">
-            <span class="mono" aria-hidden="true">V.K.</span>
+            <LeatherDeboss :text="locale === 'ua' ? 'В.К.' : 'V.K.'" />
           </span>
           <span class="feature-text">{{ t('personal.title').replace('\n', ' ') }}</span>
         </NuxtLink>
@@ -243,19 +243,6 @@ function onKeydown(e: KeyboardEvent) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.mono {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-stretch: var(--display-stretch);
-  font-size: 26px;
-  letter-spacing: 0.08em;
-  color: var(--deboss-ink);
-  text-shadow: 0 1px 0 var(--deboss-hi), 0 -1px 1px var(--deboss-shadow);
 }
 .feature-text {
   font-size: 15px;
