@@ -15,3 +15,6 @@ logs
 
 # Claude Code: локальні налаштування не комітимо, скіли й CLAUDE.md — так
 .claude/settings.local.json
+
+# Макети брейнштормів (visual companion)
+.superpowers/
