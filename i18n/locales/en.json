@@ -69,22 +69,33 @@
   },
   "leather": {
     "title": "Crazy Horse leather gets better every year",
-    "oiled": {
-      "title": "Oiled and waxed",
-      "text": "Thick, soft full-grain leather that keeps its shape and resists everyday wear."
+    "lead": "Oiled and waxed full grain. Light marks rub out with a fingertip, and the colour deepens the longer you carry it.",
+    "rivets": {
+      "title": "Brass rivets on every handle",
+      "text": "Solid brass, set by hand where the strap takes the weight.",
+      "alt": "Close-up of brass rivets on the handles of a cognac leather tote"
+    },
+    "stitching": {
+      "title": "Stitched to last",
+      "text": "Thick waxed thread on every seam.",
+      "alt": "Contrast stitching along the edge of a cognac leather bag"
     },
     "patina": {
-      "title": "Builds a patina",
-      "text": "Light marks rub out with a fingertip, and the colour deepens the longer you carry it."
-    },
-    "colors": {
-      "title": "Classic and bright",
-      "text": "Black, cognac and chocolate next to burgundy, red, green and blue."
+      "title": "Ages with you",
+      "text": "Scuffs fade into a darker patina.",
+      "alt": "Patina and pull-up marks on Crazy Horse leather"
     }
   },
   "reviews": {
     "rated": "Rated {rating} out of 5",
-    "caption": "{count} reviews on Etsy, Star Seller"
+    "caption": "{count} reviews on Etsy, Star Seller",
+    "all": "Read all reviews on Etsy",
+    "source": "Etsy review, {date}",
+    "items": {
+      "burgundyTote": "burgundy tote",
+      "blackTote": "black tote",
+      "blackToteMonogram": "black tote with monogram"
+    }
   },
   "story": {
     "title": "Started by a husband and wife, made by our team",
