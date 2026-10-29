@@ -3,8 +3,8 @@
 // Підписи як у журналі: короткий заголовок шрифтом заголовків і один рядок пояснення.
 const { t } = useI18n()
 const details = [
-  { key: 'stitching', image: '/images/detail-stitching.jpg' },
-  { key: 'patina', image: '/images/detail-patina.jpg' },
+  { key: 'pockets', image: '/images/detail-pockets.jpg' },
+  { key: 'patina', image: '/images/detail-flap.jpg' },
 ] as const
 </script>
 
@@ -12,11 +12,11 @@ const details = [
   <section aria-labelledby="leather-h" class="container leather">
     <figure class="lead-fig">
       <div class="photo lead-photo">
-        <img :src="publicPath('/images/detail-rivets.jpg')" :alt="t('leather.rivets.alt')" loading="lazy">
+        <img :src="publicPath('/images/detail-hardware.jpg')" :alt="t('leather.hardware.alt')" loading="lazy">
       </div>
       <figcaption class="lead-cap">
-        <span class="display cap-title lead-title">{{ t('leather.rivets.title') }}</span>
-        <span class="cap-text lead-text">{{ t('leather.rivets.text') }}</span>
+        <span class="display cap-title lead-title">{{ t('leather.hardware.title') }}</span>
+        <span class="cap-text lead-text">{{ t('leather.hardware.text') }}</span>
       </figcaption>
     </figure>
 
@@ -62,7 +62,7 @@ const details = [
   min-height: 640px;
 }
 .lead-photo img {
-  object-position: 50% 40%;
+  object-position: 50% 25%;
 }
 .lead-cap {
   display: flex;
