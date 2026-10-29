@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { etsy } from '~/data/brand'
-import { bestsellers } from '~/data/catalog'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+
+// Якщо товари не завантажились або їх немає, секцію просто не показуємо.
+const { data: bestsellers } = await useBestsellers()
 </script>
 
 <template>
-  <section id="shop" aria-labelledby="best-h" class="bestsellers">
+  <section v-if="bestsellers.length" id="shop" aria-labelledby="best-h" class="bestsellers">
     <div class="container inner">
       <div class="head">
         <h2 id="best-h" class="display heading">{{ t('home.bestsellersTitle') }}</h2>

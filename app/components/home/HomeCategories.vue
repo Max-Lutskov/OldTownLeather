@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { homeCategories } from '~/data/catalog'
-
 const { t } = useI18n()
 const localePath = useLocalePath()
+
+// Якщо категорії не завантажились або їх немає, секцію просто не показуємо.
+const { data: categories } = await useHomeCategories()
 </script>
 
 <template>
-  <section aria-labelledby="cat-h" class="container categories">
+  <section v-if="categories.length" aria-labelledby="cat-h" class="container categories">
     <h2 id="cat-h" class="display heading">{{ t('home.categoriesTitle') }}</h2>
     <div class="grid">
       <NuxtLink
-        v-for="c in homeCategories"
+        v-for="c in categories"
         :key="c.handle"
         :to="localePath(`/collections/${c.handle}`)"
         class="card"
