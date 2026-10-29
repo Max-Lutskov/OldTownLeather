@@ -70,20 +70,20 @@
   "leather": {
     "title": "Crazy Horse leather gets better every year",
     "lead": "Oiled and waxed full grain. Light marks rub out with a fingertip, and the colour deepens the longer you carry it.",
-    "rivets": {
-      "title": "Brass rivets on every handle",
-      "text": "Solid brass, set by hand where the strap takes the weight.",
-      "alt": "Close-up of brass rivets on the handles of a cognac leather tote"
+    "hardware": {
+      "title": "Silver, brass or gold hardware",
+      "text": "Rivets set by hand where the handle takes the weight.",
+      "alt": "Three leather handles riveted to a cognac tote, with silver, brass and gold rivets"
     },
-    "stitching": {
-      "title": "Stitched to last",
-      "text": "Thick waxed thread on every seam.",
-      "alt": "Contrast stitching along the edge of a cognac leather bag"
+    "pockets": {
+      "title": "Pockets inside",
+      "text": "Slip pockets stitched inside the bag.",
+      "alt": "Inside a cognac leather bag: stitched slip pockets along the side"
     },
     "patina": {
       "title": "Ages with you",
       "text": "Scuffs fade into a darker patina.",
-      "alt": "Patina and pull-up marks on Crazy Horse leather"
+      "alt": "Flap of a cognac Crazy Horse leather crossbody with natural pull-up marks"
     }
   },
   "reviews": {
