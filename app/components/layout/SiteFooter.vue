@@ -1,22 +1,10 @@
 <script setup lang="ts">
 import { contacts, etsy, paymentMethods } from '~/data/brand'
+import { footerHelpNav, footerShopNav } from '~/data/navigation'
 
 const { t } = useI18n()
 const n = useNumber()
 const localePath = useLocalePath()
-
-const shopLinks = [
-  { to: '/collections/totes', key: 'nav.totes' },
-  { to: '/collections/shoulder-bags', key: 'nav.shoulderBags' },
-  { to: '/collections/backpacks', key: 'nav.backpacks' },
-  { to: '/collections/belts-wallets', key: 'footer.beltsWallets' },
-]
-const helpLinks = [
-  { to: '/shipping', key: 'footer.shipping' },
-  { to: '/returns', key: 'footer.returns' },
-  { to: '/leather-care', key: 'footer.care' },
-  { to: '/contact', key: 'footer.contact' },
-]
 </script>
 
 <template>
@@ -32,12 +20,12 @@ const helpLinks = [
 
       <nav :aria-label="t('footer.shop')" class="col">
         <span class="col-title">{{ t('footer.shop') }}</span>
-        <NuxtLink v-for="l in shopLinks" :key="l.key" :to="localePath(l.to)">{{ t(l.key) }}</NuxtLink>
+        <NuxtLink v-for="l in footerShopNav" :key="l.key" :to="localePath(l.to)">{{ t(l.key) }}</NuxtLink>
       </nav>
 
       <nav :aria-label="t('footer.help')" class="col">
         <span class="col-title">{{ t('footer.help') }}</span>
-        <NuxtLink v-for="l in helpLinks" :key="l.key" :to="localePath(l.to)">{{ t(l.key) }}</NuxtLink>
+        <NuxtLink v-for="l in footerHelpNav" :key="l.key" :to="localePath(l.to)">{{ t(l.key) }}</NuxtLink>
       </nav>
 
       <div class="col">

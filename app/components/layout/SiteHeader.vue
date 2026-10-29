@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavItem } from '~/types/navigation'
+import { mainNav } from '~/data/navigation'
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
@@ -7,13 +7,6 @@ const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 
 const otherLocale = computed(() => (locale.value === 'en' ? 'ua' : 'en'))
-
-const nav: NavItem[] = [
-  { to: '/collections/all', key: 'nav.shop' },
-  { to: '/collections/totes', key: 'nav.totes' },
-  { to: '/#personal', key: 'nav.personalization' },
-  { to: '/about', key: 'nav.story' },
-]
 
 // Мобільне меню: у демо бургер без дії, тут він відкриває бокову панель (MobileMenu).
 const menuOpen = ref(false)
@@ -37,7 +30,7 @@ watch(() => route.fullPath, () => {
           <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
         </button>
         <nav :aria-label="t('nav.label')" class="nav">
-          <NuxtLink v-for="item in nav" :key="item.key" :to="localePath(item.to)">
+          <NuxtLink v-for="item in mainNav" :key="item.key" :to="localePath(item.to)">
             {{ t(item.key) }}
           </NuxtLink>
         </nav>
@@ -69,7 +62,7 @@ watch(() => route.fullPath, () => {
         </button>
       </div>
     </div>
-    <LayoutMobileMenu :open="menuOpen" :items="nav" @close="menuOpen = false" />
+    <LayoutMobileMenu :open="menuOpen" :items="mainNav" @close="menuOpen = false" />
   </header>
 </template>
 
