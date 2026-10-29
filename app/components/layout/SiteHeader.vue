@@ -50,14 +50,15 @@ watch(() => route.fullPath, () => {
         >
           EN / UA
         </NuxtLink>
-        <button type="button" class="icon-btn" :aria-label="t('header.search')">
+        <!-- Пошук і акаунт ведуть на свої сторінки (поки 404, як і решта ще не створених) -->
+        <NuxtLink :to="localePath('/search')" class="icon-btn" :aria-label="t('header.search')">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
-        </button>
-        <button type="button" class="icon-btn extra" :aria-label="t('header.account')">
+        </NuxtLink>
+        <NuxtLink :to="localePath('/account')" class="icon-btn extra" :aria-label="t('header.account')">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
-        </button>
+        </NuxtLink>
         <!-- TODO: відкривати кошик-drawer (Shopify Cart API) -->
-        <button type="button" class="icon-btn" :aria-label="t('header.cart', { count: 0 })">
+        <button type="button" class="icon-btn" :aria-label="t('header.cart', { count: 0 }, 0)">
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2L5 8z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
         </button>
       </div>
@@ -108,9 +109,7 @@ watch(() => route.fullPath, () => {
   letter-spacing: 0.04em;
 }
 .brand-name {
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: 13px;
   color: var(--muted);
 }
 .actions {

@@ -5,10 +5,10 @@ const localePath = useLocalePath()
 
 <template>
   <section id="story" aria-labelledby="story-h" class="container story">
-    <div class="photo media">
-      <img :src="publicPath('/images/team-workshop.jpg')" :alt="t('story.alt')" loading="lazy">
+    <div v-reveal class="photo media">
+      <NuxtImg src="/images/team-workshop.jpg" :alt="t('story.alt')" preset="photo" sizes="xs:100vw sm:100vw md:100vw lg:56vw xl:720px" loading="lazy" />
     </div>
-    <div class="copy">
+    <div v-reveal="1" class="copy">
       <h2 id="story-h" class="display heading">{{ t('story.title') }}</h2>
       <p class="text">{{ t('story.text') }}</p>
       <NuxtLink :to="localePath('/about')" class="text-link more">{{ t('story.more') }}</NuxtLink>

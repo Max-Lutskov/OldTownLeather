@@ -19,7 +19,7 @@ const href = computed(() =>
 <template>
   <article class="card">
     <NuxtLink :to="href" class="photo media" tabindex="-1" aria-hidden="true">
-      <img :src="publicPath(product.image.url)" :alt="product.image.alt" loading="lazy">
+      <NuxtImg :src="product.image.url" :alt="product.image.alt" preset="photo" sizes="xs:50vw sm:50vw md:34vw lg:25vw xl:300px" loading="lazy" />
       <span v-if="badgeKey" class="badge">{{ t(badgeKey) }}</span>
     </NuxtLink>
     <div class="info">
@@ -148,14 +148,33 @@ const href = computed(() =>
   color: var(--ink-soft);
 }
 
+/* Лише на пристроях з мишкою: фото повільно наближається, назва підкреслюється */
+@media (hover: hover) and (pointer: fine) {
+  .media img {
+    transition: transform 0.9s var(--ease-out);
+  }
+  .card:hover .media img {
+    transform: scale(1.04);
+  }
+  .card:hover .title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
 @media (max-width: 760px) {
   .subtitle {
     display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dot {
+  .dot,
+  .media img {
     transition: none;
+  }
+  .card:hover .media img {
+    transform: none;
   }
 }
 </style>

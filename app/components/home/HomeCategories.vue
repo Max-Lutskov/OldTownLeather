@@ -8,16 +8,17 @@ const { data: categories } = await useHomeCategories()
 
 <template>
   <section v-if="categories.length" aria-labelledby="cat-h" class="container categories">
-    <h2 id="cat-h" class="display heading">{{ t('home.categoriesTitle') }}</h2>
+    <h2 id="cat-h" v-reveal class="display heading">{{ t('home.categoriesTitle') }}</h2>
     <!-- Великі плитки 2×2: фото щільно по сумці, однаковий тон, назва шрифтом заголовків поверх фото -->
     <div class="grid">
       <NuxtLink
-        v-for="c in categories"
+        v-for="(c, i) in categories"
         :key="c.handle"
+        v-reveal="i"
         :to="localePath(`/collections/${c.handle}`)"
         class="tile photo"
       >
-        <img :src="publicPath(c.image)" alt="" loading="lazy">
+        <NuxtImg :src="c.image" alt="" preset="photo" sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:620px" loading="lazy" />
         <span class="shade" aria-hidden="true" />
         <span class="display name">{{ t(c.labelKey) }}</span>
       </NuxtLink>
@@ -64,6 +65,23 @@ const { data: categories } = await useHomeCategories()
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 6px;
+}
+/* Лише на пристроях з мишкою: фото повільно наближається */
+@media (hover: hover) and (pointer: fine) {
+  .tile img {
+    transition: transform 0.9s var(--ease-out);
+  }
+  .tile:hover img {
+    transform: scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile img {
+    transition: none;
+  }
+  .tile:hover img {
+    transform: none;
+  }
 }
 
 @media (max-width: 760px) {

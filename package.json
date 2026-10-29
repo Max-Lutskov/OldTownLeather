@@ -11,6 +11,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^1.2.0",
+    "@nuxt/image": "^2.2.0",
     "@nuxtjs/i18n": "^10.6.0",
     "@vueuse/core": "^15.0.0",
     "@vueuse/nuxt": "^15.0.0",

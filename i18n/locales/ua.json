@@ -40,7 +40,7 @@
   "home": {
     "categoriesTitle": "Категорії",
     "bestsellersTitle": "Бестселери",
-    "viewAll": "Усі {count} моделі"
+    "viewAll": "Уся {count} модель | Усі {count} моделі | Усі {count} моделей"
   },
   "category": {
     "totes": "Тоути",
@@ -88,14 +88,15 @@
   },
   "reviews": {
     "rated": "Оцінка {rating} з 5",
-    "caption": "{count} відгуки на Etsy, Star Seller",
+    "caption": "{count} відгук на Etsy, Star Seller | {count} відгуки на Etsy, Star Seller | {count} відгуків на Etsy, Star Seller",
     "all": "Усі відгуки на Etsy",
     "source": "Відгук на Etsy, {date}",
     "items": {
       "burgundyTote": "бордова сумка",
       "blackTote": "чорна сумка",
       "blackToteMonogram": "чорна сумка з ініціалами"
-    }
+    },
+    "title": "Відгуки покупців"
   },
   "story": {
     "title": "Почали чоловік і дружина, тепер шиє наша команда",
@@ -105,7 +106,7 @@
   },
   "footer": {
     "tagline": "Шкіряні сумки ручної роботи від сімейної майстерні в Україні.",
-    "etsy": "Ми також на Etsy: {orders} замовлень з {year} року",
+    "etsy": "Ми також на Etsy: {orders} замовлення з {year} року | Ми також на Etsy: {orders} замовлення з {year} року | Ми також на Etsy: {orders} замовлень з {year} року",
     "shop": "Каталог",
     "help": "Допомога",
     "contact": "Контакти",

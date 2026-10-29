@@ -20,7 +20,7 @@ const monogram = computed(() => (input.value || DEFAULT_INITIALS.value).split(''
 <template>
   <section id="personal" aria-labelledby="pers-h" class="personal on-dark">
     <div class="container inner">
-      <div class="copy">
+      <div v-reveal class="copy">
         <h2 id="pers-h" class="display heading">
           <template v-for="(line, i) in t('personal.title').split('\n')" :key="i">
             <br v-if="i">{{ line }}
@@ -35,9 +35,9 @@ const monogram = computed(() => (input.value || DEFAULT_INITIALS.value).split(''
         </ol>
       </div>
 
-      <div class="demo">
+      <div v-reveal="1" class="demo">
         <div class="leather">
-          <img :src="publicPath('/images/leather-pocket.jpg')" :alt="t('personal.alt')" loading="lazy">
+          <NuxtImg src="/images/leather-pocket.jpg" :alt="t('personal.alt')" preset="photo" sizes="xs:100vw sm:100vw md:100vw lg:50vw xl:620px" loading="lazy" />
           <LeatherDeboss :text="monogram" announce />
         </div>
         <div class="try">

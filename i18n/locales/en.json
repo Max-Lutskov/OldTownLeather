@@ -21,7 +21,7 @@
     "switchLanguage": "Українська версія",
     "search": "Search",
     "account": "Account",
-    "cart": "Cart, {count} items",
+    "cart": "Cart, {count} item | Cart, {count} items",
     "menu": "Menu",
     "home": "Old Town Leather, home",
     "close": "Close menu"
@@ -40,7 +40,7 @@
   "home": {
     "categoriesTitle": "Shop by category",
     "bestsellersTitle": "Bestsellers",
-    "viewAll": "View all {count} bags"
+    "viewAll": "View all {count} bag | View all {count} bags"
   },
   "category": {
     "totes": "Totes",
@@ -88,14 +88,15 @@
   },
   "reviews": {
     "rated": "Rated {rating} out of 5",
-    "caption": "{count} reviews on Etsy, Star Seller",
+    "caption": "{count} review on Etsy, Star Seller | {count} reviews on Etsy, Star Seller",
     "all": "Read all reviews on Etsy",
     "source": "Etsy review, {date}",
     "items": {
       "burgundyTote": "burgundy tote",
       "blackTote": "black tote",
       "blackToteMonogram": "black tote with monogram"
-    }
+    },
+    "title": "Customer reviews"
   },
   "story": {
     "title": "Started by a husband and wife, made by our team",
@@ -105,7 +106,7 @@
   },
   "footer": {
     "tagline": "Handmade leather bags from a family workshop in Ukraine.",
-    "etsy": "Also on Etsy: {orders} orders since {year}",
+    "etsy": "Also on Etsy: {orders} order since {year} | Also on Etsy: {orders} orders since {year}",
     "shop": "Shop",
     "help": "Help",
     "contact": "Contact",

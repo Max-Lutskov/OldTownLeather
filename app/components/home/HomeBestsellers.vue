@@ -2,6 +2,7 @@
 import { etsy } from '~/data/brand'
 
 const { t } = useI18n()
+const n = useNumber()
 const localePath = useLocalePath()
 
 // Якщо товари не завантажились або їх немає, секцію просто не показуємо.
@@ -11,14 +12,14 @@ const { data: bestsellers } = await useBestsellers()
 <template>
   <section v-if="bestsellers.length" id="shop" aria-labelledby="best-h" class="bestsellers">
     <div class="container inner">
-      <div class="head">
+      <div v-reveal class="head">
         <h2 id="best-h" class="display heading">{{ t('home.bestsellersTitle') }}</h2>
         <NuxtLink :to="localePath('/collections/all')" class="text-link">
-          {{ t('home.viewAll', { count: etsy.designs }) }}
+          {{ t('home.viewAll', { count: n(etsy.designs) }, etsy.designs) }}
         </NuxtLink>
       </div>
       <div class="grid">
-        <ProductCard v-for="p in bestsellers" :key="p.handle" :product="p" />
+        <ProductCard v-for="(p, i) in bestsellers" :key="p.handle" v-reveal="i" :product="p" />
       </div>
     </div>
   </section>

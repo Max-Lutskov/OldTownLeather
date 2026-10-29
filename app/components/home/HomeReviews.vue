@@ -19,21 +19,25 @@ function month(ym: string) {
 <template>
   <section aria-labelledby="rev-h" class="reviews">
     <div class="container inner">
-      <div class="head">
+      <div v-reveal class="head">
         <div class="score">
-          <h2 id="rev-h" class="display rating">{{ n(etsy.rating) }}</h2>
+          <!-- Для скрінрідера заголовок секції словами, оцінку з 5 озвучують зірки поруч -->
+          <h2 id="rev-h" class="display rating">
+            <span class="visually-hidden">{{ t('reviews.title') }}</span>
+            <span aria-hidden="true">{{ n(etsy.rating) }}</span>
+          </h2>
           <div class="score-meta">
             <span class="stars" role="img" :aria-label="t('reviews.rated', { rating: n(etsy.rating) })">
               <svg v-for="i in 5" :key="i" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" /></svg>
             </span>
-            <span class="caption">{{ t('reviews.caption', { count: n(etsy.reviews) }) }}</span>
+            <span class="caption">{{ t('reviews.caption', { count: n(etsy.reviews) }, etsy.reviews) }}</span>
           </div>
         </div>
         <a :href="`${etsy.url}reviews`" class="text-link all" target="_blank" rel="noopener">{{ t('reviews.all') }}</a>
       </div>
 
       <div v-if="reviews.length" class="quotes">
-        <figure v-for="r in reviews" :key="r.author + r.date" class="quote">
+        <figure v-for="(r, i) in reviews" :key="r.author + r.date" v-reveal="i" class="quote">
           <blockquote class="display" :lang="locale === 'ua' ? 'en' : undefined">{{ r.text }}</blockquote>
           <figcaption class="who">
             <span class="name">{{ r.author }}, {{ t(`reviews.items.${r.item}`) }}</span>

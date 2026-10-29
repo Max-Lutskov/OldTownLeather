@@ -107,7 +107,7 @@ function onKeydown(e: KeyboardEvent) {
 
         <NuxtLink :to="localePath('/#personal')" class="feature" :style="{ '--i': items.length + 1 }" @click="emit('close')">
           <span class="plate">
-            <img :src="publicPath('/images/leather-pocket.jpg')" alt="" loading="lazy">
+            <NuxtImg src="/images/leather-pocket.jpg" alt="" preset="photo" sizes="96px" loading="lazy" />
             <LeatherDeboss :text="locale === 'ua' ? 'В.К.' : 'V.K.'" />
           </span>
           <span class="feature-text">{{ t('personal.title').replace('\n', ' ') }}</span>
@@ -115,7 +115,7 @@ function onKeydown(e: KeyboardEvent) {
 
         <div class="foot" :style="{ '--i': items.length + 2 }">
           <span class="rating">{{ n(etsy.rating) }}</span>
-          <span>{{ t('reviews.caption', { count: n(etsy.reviews) }) }}</span>
+          <span>{{ t('reviews.caption', { count: n(etsy.reviews) }, etsy.reviews) }}</span>
           <span>{{ t('topBar.handmade') }}</span>
         </div>
       </div>

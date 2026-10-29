@@ -60,6 +60,9 @@
   --btn-h: 52px;
   --input-h: 48px;
   --tap: 44px;
+
+  /* Плавне гальмування для появи блоків і ховерів на фото */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 html,
@@ -196,6 +199,24 @@ input:disabled {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Поява блоків при прокрутці (директива v-reveal, app/plugins/reveal.ts). Фото всередині блока
+   ледь помітно «осідають», як у мобільному hero. Лише transform і opacity. */
+[data-reveal] {
+  transition:
+    opacity 0.8s ease var(--reveal-delay, 0ms),
+    transform 0.9s var(--ease-out) var(--reveal-delay, 0ms);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-reveal] .photo > img {
+  transition: transform 1.6s var(--ease-out) var(--reveal-delay, 0ms);
+}
+[data-reveal="hidden"] .photo > img {
+  transform: scale(1.06);
 }
 
 /* Мобільна версія з демо: брейкпойнт 760px, бокові поля 20px */

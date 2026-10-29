@@ -1,4 +1,4 @@
-# Демо на GitHub Pages: статична збірка (nuxt generate) у підпапці /otl-bags/, з noindex.
+# Демо на GitHub Pages: статична збірка (nuxt generate) у підпапці /<назва репо>/, з noindex.
 name: Deploy to GitHub Pages
 
 on:
@@ -25,6 +25,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Домен для canonical, hreflang і og:image. Хост github.io завжди в нижньому регістрі
+      - run: |
+          echo "NUXT_PUBLIC_SITE_URL=https://${OWNER,,}.github.io" >> "$GITHUB_ENV"
+          echo "NUXT_PUBLIC_I18N_BASE_URL=https://${OWNER,,}.github.io" >> "$GITHUB_ENV"
+        env:
+          OWNER: ${{ github.repository_owner }}
       - run: npx nuxt generate
         env:
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/

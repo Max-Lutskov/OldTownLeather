@@ -10,9 +10,9 @@ const details = [
 
 <template>
   <section aria-labelledby="leather-h" class="container leather">
-    <figure class="lead-fig">
+    <figure v-reveal class="lead-fig">
       <div class="photo lead-photo">
-        <img :src="publicPath('/images/detail-hardware.jpg')" :alt="t('leather.hardware.alt')" loading="lazy">
+        <NuxtImg src="/images/detail-hardware.jpg" :alt="t('leather.hardware.alt')" preset="photo" sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:700px" loading="lazy" />
       </div>
       <figcaption class="lead-cap">
         <span class="display cap-title lead-title">{{ t('leather.hardware.title') }}</span>
@@ -21,14 +21,14 @@ const details = [
     </figure>
 
     <div class="side">
-      <div class="copy">
+      <div v-reveal="1" class="copy">
         <h2 id="leather-h" class="display heading">{{ t('leather.title') }}</h2>
         <p class="lead">{{ t('leather.lead') }}</p>
       </div>
       <div class="details">
-        <figure v-for="d in details" :key="d.key" class="detail">
+        <figure v-for="(d, i) in details" :key="d.key" v-reveal="i + 1" class="detail">
           <div class="photo detail-photo">
-            <img :src="publicPath(d.image)" :alt="t(`leather.${d.key}.alt`)" loading="lazy">
+            <NuxtImg :src="d.image" :alt="t(`leather.${d.key}.alt`)" preset="photo" sizes="xs:50vw sm:50vw md:50vw lg:50vw xl:260px" loading="lazy" />
           </div>
           <figcaption class="detail-cap">
             <span class="display cap-title">{{ t(`leather.${d.key}.title`) }}</span>

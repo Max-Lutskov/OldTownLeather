@@ -56,7 +56,10 @@
 - Шрифти: Instrument Serif (заголовки, 400) + Manrope (текст). В Instrument немає кирилиці, тому в
   `--font-display` другим стоїть Noto Serif Display, стиснутий через `--display-stretch: 80%`
   (на Instrument не впливає). Кожне `font-family: var(--font-display)` супроводжувати
-  `font-stretch: var(--display-stretch)`
+  `font-stretch: var(--display-stretch)`. Шрифти self-host через `@nuxt/fonts` (`fonts` у `nuxt.config.ts`), без
+  запитів до Google. В Instrument Serif `fallbacks: []`: метричний фолбек перехоплював кирилицю раніше за Noto
+- Фото через `<NuxtImg preset="photo" sizes="…">` (`@nuxt/image`, WebP під час збірки), не `<img>`. Правило `sizes`
+  в коментарі до `image` у `nuxt.config.ts`: завжди починати з `xs:`, бо значення без префікса рахується від 1px
 - Кольори й шрифти лише через токени з `main.css`, без літералів у компонентах. Кольори шкіри — `--leather-*`
 - Брейкпойнт мобільної версії 760px, бокові поля `--gutter` (32px, на мобільному 20px). Інтерактив від 44px
   (кружечки кольорів на картці — 28px, мінімум WCAG 2.5.8)
@@ -78,6 +81,8 @@
   `nuxt generate` з `NUXT_APP_BASE_URL=/<назва репо>/` і `NUXT_PUBLIC_NOINDEX=true`
 - Демо: https://max-lutskov.github.io/OldTownLeather/ (з `noindex,nofollow`)
 - Сторінки для статичної збірки задані явно в `nitro.prerender.routes` (`nuxt.config.ts`). Нову сторінку додавати туди
+- `NUXT_PUBLIC_SITE_URL` і `NUXT_PUBLIC_I18N_BASE_URL` (домен без підпапки) задає workflow: з них canonical,
+  hreflang і og:image (`absolutePublicUrl`). Без них посилання відносні
 - Шляхи до файлів з `public/` писати через `publicPath('/images/…')` (`app/utils/publicPath.ts`), інакше вони
   ламаються в підпапці
 
@@ -90,6 +95,8 @@
   esbuild 0.28.2 (необов'язкові peer-залежності vite), а npm 10 їх вимагає: `npm ci` у CI падає з EUSAGE
   «Missing: esbuild@0.28.2». Після `npm install` перевіряти: `npx -y npm@10 ci --dry-run --os=linux --cpu=x64`.
   Якщо падає — повернути видалені записи з попереднього lock-файлу (версії ті самі)
+- Множина в текстах: форми через «|» (EN дві, UA три, правило в `i18n/i18n.config.ts`), число третім аргументом:
+  `t(key, { count: n(x) }, x)`
 - Dev-сервер не завжди підхоплює зміни в `i18n/locales/*.json`: на сторінці видно ключі на кшталт `color.cognac`.
   Допомагає оновити файл ще раз або перезапустити сервер
 - Перший клік до гідратації не спрацьовує (бургер, слайдер): у перевірках чекати завантаження

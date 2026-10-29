@@ -6,7 +6,8 @@ useSeoMeta({
   description: () => t('meta.description'),
   ogTitle: () => t('meta.title'),
   ogDescription: () => t('meta.description'),
-  ogImage: publicPath('/images/cognac-zip-tote.jpg'),
+  ogImage: absolutePublicUrl('/images/cognac-zip-tote.jpg'),
+  twitterCard: 'summary_large_image',
 })
 </script>
 

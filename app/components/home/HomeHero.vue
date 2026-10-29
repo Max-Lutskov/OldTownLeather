@@ -57,9 +57,16 @@ function release() {
         :key="s.src"
         class="photo slide"
         :class="{ active: i === current }"
-        :style="{ '--pos': s.pos, '--pos-m': s.posMobile }"
+        :style="{ '--pos': s.pos, '--pos-m': s.posMobile, '--n': i }"
       >
-        <img :src="publicPath(s.src)" :alt="t(s.altKey)" :fetchpriority="i === 0 ? 'high' : undefined">
+        <NuxtImg
+          :src="s.src"
+          :alt="t(s.altKey)"
+          preset="photo"
+          sizes="xs:100vw sm:100vw md:34vw lg:34vw xl:34vw 2xl:34vw"
+          :preload="i === 0 ? { fetchPriority: 'high' } : undefined"
+          :fetchpriority="i === 0 ? 'high' : undefined"
+        />
       </div>
     </div>
     <div class="scrim" aria-hidden="true" />
@@ -240,6 +247,15 @@ function release() {
   }
   to {
     transform: scale(1);
+  }
+}
+
+/* Десктоп: після завантаження три фото по черзі «осідають», як слайди на мобільному. Чистий CSS,
+   працює ще до гідратації і не затримує LCP (фото видно з першого кадру). */
+@media (min-width: 761px) {
+  .slide img {
+    animation: settle 2.4s var(--ease-out) both;
+    animation-delay: calc(var(--n) * 140ms);
   }
 }
 

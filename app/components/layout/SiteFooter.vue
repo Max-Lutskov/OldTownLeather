@@ -14,7 +14,7 @@ const localePath = useLocalePath()
         <span class="mark">OTL</span>
         <span class="tagline">{{ t('footer.tagline') }}</span>
         <a :href="etsy.url" class="etsy" rel="noopener">
-          {{ t('footer.etsy', { orders: n(etsy.orders), year: etsy.since }) }}
+          {{ t('footer.etsy', { orders: n(etsy.orders), year: etsy.since }, etsy.orders) }}
         </a>
       </div>
 
