@@ -1,3 +1,5 @@
+import type { StoreContacts } from '#shared/types/store'
+
 // Справжні цифри з Etsy (otlbags.etsy.com), стан на жовтень 2026. Оновлювати вручну, не вигадувати.
 export const etsy = {
   url: 'https://otlbags.etsy.com/',
@@ -9,7 +11,7 @@ export const etsy = {
 } as const
 
 // Поки клієнтка не надала контакти, тут null: футер показує заглушки.
-export const contacts: { email: string | null; instagram: string | null; phone: string | null } = {
+export const contacts: StoreContacts = {
   email: null,
   instagram: null,
   phone: null,

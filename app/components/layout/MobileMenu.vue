@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { etsy } from '~/data/brand'
+import type { NavItem } from '~/types/navigation'
 
 // Бокове меню для мобільної версії: виїжджає зліва, фон затемнюється.
 // Анімації лише transform і opacity, з фолбеком для prefers-reduced-motion.
 const props = defineProps<{
   open: boolean
-  items: { to: string; key: string }[]
+  items: NavItem[]
 }>()
 const emit = defineEmits<{ close: [] }>()
 

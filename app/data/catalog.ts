@@ -1,43 +1,15 @@
 // Тимчасові дані головної, поки немає підключення до Shopify Storefront API.
-// Форма ProductCard близька до того, що віддасть GraphQL-запит, щоб потім лише замінити джерело.
+// Компоненти беруть їх лише через composables з useCatalog.ts. Типи — у shared/types/catalog.ts.
+import type { HomeCategory, ProductSummary } from '#shared/types/catalog'
 
-export type LeatherColor =
-  | 'black'
-  | 'cognac'
-  | 'chocolate'
-  | 'burgundy'
-  | 'green'
-  | 'tan'
-  | 'red'
-  | 'caramel'
-
-export interface ProductCard {
-  handle: string
-  title: string
-  subtitle: string
-  image: { url: string; alt: string }
-  price: { amount: number; currencyCode: 'USD' }
-  compareAtPrice: { amount: number; currencyCode: 'USD' } | null
-  colors: LeatherColor[]
-  // Колір сумки на фото картки: його показуємо вибраним за замовчуванням.
-  imageColor: LeatherColor
-  badge: 'personalize' | 'new' | 'bestseller' | null
-}
-
-export interface CategoryCard {
-  handle: string
-  labelKey: string
-  image: string
-}
-
-export const homeCategories: CategoryCard[] = [
+export const homeCategories: HomeCategory[] = [
   { handle: 'totes', labelKey: 'category.totes', image: '/images/work-tote.jpg' },
   { handle: 'shoulder-bags', labelKey: 'category.shoulderBags', image: '/images/cappuccino-bag.jpg' },
   { handle: 'laptop-work', labelKey: 'category.laptopWork', image: '/images/studded-laptop-tote.jpg' },
   { handle: 'mini-crossbody', labelKey: 'category.miniCrossbody', image: '/images/mini-crossbody.jpg' },
 ]
 
-export const bestsellers: ProductCard[] = [
+export const bestsellers: ProductSummary[] = [
   {
     handle: 'studded-laptop-tote',
     title: 'Studded Laptop Tote',

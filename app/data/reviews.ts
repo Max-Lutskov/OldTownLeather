@@ -1,12 +1,7 @@
 // Справжні відгуки з Etsy (otlbags.etsy.com/reviews), усі 5 зірок. Текст мовою оригіналу, трохи скорочений
 // без зміни змісту. Перед запуском живого сайту потрібна згода клієнтки; нових відгуків не вигадувати.
-// item — ключ i18n у `reviews.items`, date — рік і місяць відгуку.
-export interface EtsyReview {
-  text: string
-  author: string
-  item: 'burgundyTote' | 'blackTote' | 'blackToteMonogram'
-  date: string
-}
+// Тип EtsyReview — у shared/types/store.ts.
+import type { EtsyReview } from '#shared/types/store'
 
 export const reviews: EtsyReview[] = [
   {

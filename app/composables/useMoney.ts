@@ -1,3 +1,5 @@
+import type { Money } from '#shared/types/catalog'
+
 // Код локалі в URL "ua", а для Intl потрібен мовний тег "uk-UA".
 function useIntlLocale() {
   const { locale } = useI18n()
@@ -8,7 +10,7 @@ function useIntlLocale() {
 export function useMoney() {
   const intlLocale = useIntlLocale()
 
-  return (money: { amount: number; currencyCode: string }) => {
+  return (money: Money) => {
     const whole = Number.isInteger(money.amount)
     return new Intl.NumberFormat(intlLocale(), {
       style: 'currency',

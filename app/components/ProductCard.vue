@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { LeatherColor, ProductCard } from '~/data/catalog'
+import type { LeatherColor, ProductSummary } from '#shared/types/catalog'
 
-const props = defineProps<{ product: ProductCard }>()
+const props = defineProps<{ product: ProductSummary }>()
 
 const { t } = useI18n()
 const localePath = useLocalePath()

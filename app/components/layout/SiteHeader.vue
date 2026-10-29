@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NavItem } from '~/types/navigation'
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
@@ -6,7 +8,7 @@ const route = useRoute()
 
 const otherLocale = computed(() => (locale.value === 'en' ? 'ua' : 'en'))
 
-const nav = [
+const nav: NavItem[] = [
   { to: '/collections/all', key: 'nav.shop' },
   { to: '/collections/totes', key: 'nav.totes' },
   { to: '/#personal', key: 'nav.personalization' },
